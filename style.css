@@ -9,12 +9,29 @@ body{
     width: 100%;
     height: 20%;
 }
+
+.symbol-x{
+    width: 20%;
+    height: 100%;
+    background-color: antiquewhite;
+    border-bottom-right-radius: 100%;
+}
+
 #game{
     background-color: azure;
     height: 60%;
 }
 #plyer-two{
+    display: flex;
+    flex-direction: row-reverse;
     background-color: aqua;
     width: 100%;
     height: 20%;
+}
+
+.symbol-o{
+    width: 20%;
+    height: 100%;
+    background-color: antiquewhite;
+    border-top-left-radius: 100%;
 }
