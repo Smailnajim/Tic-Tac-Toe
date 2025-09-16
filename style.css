@@ -8,13 +8,33 @@ body{
     background-color: aqua;
     width: 100%;
     height: 20%;
+    display: flex;
 }
 
 .symbol-x{
+    /* width: 20%; js*/
     width: 20%;
     height: 100%;
     background-color: antiquewhite;
     border-bottom-right-radius: 100%;
+    font-size: 50px;
+    text-align: center;
+}
+.score{
+    height: 20%;
+    width: 40%;
+    padding: 2%;
+    border-radius: 16px;
+    background-color: firebrick;
+    margin: auto;
+}
+.game-Over{
+    width: fit-content;
+    padding: 5px;
+    color: salmon;
+    background-color: darkblue;
+    position: relative;
+    left: 112%;
 }
 
 #game{
@@ -34,4 +54,6 @@ body{
     height: 100%;
     background-color: antiquewhite;
     border-top-left-radius: 100%;
+    font-size: 50px;
+    text-align: center;
 }
