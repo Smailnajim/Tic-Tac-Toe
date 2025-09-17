@@ -1,10 +1,11 @@
 const n = document.getElementById('numberN');
 const lyer = document.querySelector('#game .lyer');
+let plyer = 1;
 
 lyer.addEventListener('click', function(event){
     console.log(event.target);
-    if(!(event.target.className == 'lyer') /* || x or o*/)
-    event.target.style.backgroundColor = 'green';
+    if(!(event.target.className == 'lyer') || event.target.className != 'red')
+    event.target.style.backgroundColor = plyer++ % 2 ? 'green' : 'blue';
 
 });
 
