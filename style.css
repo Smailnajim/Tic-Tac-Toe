@@ -5,55 +5,96 @@ body{
 }
 
 #plyer-one{
+    background-color: #00ffff;
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+#plyer-two{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    direction: rtl;
     background-color: aqua;
     width: 100%;
     height: 20%;
-    display: flex;
+    gap: 20px;
 }
 
 .symbol-x{
     /* width: 20%; js*/
-    width: 20%;
+    width: 50%;
     height: 100%;
     background-color: antiquewhite;
-    border-bottom-right-radius: 100%;
+    border-bottom-right-radius: 16px;
     font-size: 50px;
     text-align: center;
 }
+.symbol-o{
+    width: 50%;
+    height: 100%;
+    background-color: antiquewhite;
+    border-top-left-radius: 16px;
+    font-size: 50px;
+    text-align: center;
+}
+
 .score{
-    height: 20%;
-    width: 40%;
     padding: 2%;
     border-radius: 16px;
     background-color: firebrick;
-    margin: auto;
+    text-align: center;
 }
-.game-Over{
+.game-over{
     width: fit-content;
     padding: 5px;
     color: salmon;
     background-color: darkblue;
-    position: relative;
-    left: 112%;
+    height: fit-content;
+    border-radius: 5px;
 }
 
 #game{
-    background-color: azure;
+    background-color: forestgreen;
     height: 60%;
 }
-#plyer-two{
+
+
+#parameters{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    background-color: aquamarine;
     display: flex;
-    flex-direction: row-reverse;
-    background-color: aqua;
-    width: 100%;
-    height: 20%;
+    justify-content: center;
 }
 
-.symbol-o{
-    width: 20%;
+.chosses{
+    height: 100px;
+    position: absolute;
+    top: -100px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#parameters:hover .chosses{
+    display: flex;
+}
+
+.lyer{
+    width: 50%;
     height: 100%;
-    background-color: antiquewhite;
-    border-top-left-radius: 100%;
-    font-size: 50px;
-    text-align: center;
+    margin: 0 auto;
+    background-color: blue;
+    /* gap: auto; */
+}
+
+.red{
+    background-color: red;
+    width: 90%;
+    height: 90%;
+    margin: auto;
 }

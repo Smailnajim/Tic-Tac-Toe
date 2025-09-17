@@ -9,17 +9,26 @@
 <body>
     <div id="plyer-one">
         <div class="symbol-x">x</div>
-        <div class="score">
-            <div class="game-Over">game Over</div>
-        </div>
+        <div class="score">0</div>
     </div>
 
-    <div id="game"></div>
+    <div id="game">
+        <div class="lyer">
+        </div>
+    </div>
     
     <div id="plyer-two">
         <div class="symbol-o">o</div>
+        <div class="score">0</div>
+        <div id="parameters">parameters
+            <div class="chosses">
+                <button class="game-over">game Over</button>
+                <input id="numberN" type="number" placeholder="number n*n to play">
+                <input id="numberK" type="number" placeholder="number k to win">
+            </div>
+        </div>
     </div>
-    <div id="parameters"></div>
+    
     
     <script src="script.js"></script>
 </body>
