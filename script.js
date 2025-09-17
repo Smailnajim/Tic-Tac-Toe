@@ -3,9 +3,11 @@ const lyer = document.querySelector('#game .lyer');
 let plyer = 1;
 
 lyer.addEventListener('click', function(event){
-    console.log(event.target);
-    if(!(event.target.className == 'lyer') || event.target.className != 'red')
-    event.target.style.backgroundColor = plyer++ % 2 ? 'green' : 'blue';
+    console.log(event.target.className);
+    if((event.target.className != 'lyer') && (event.target.className == 'red')){
+        event.target.classList.remove('red');
+        event.target.style.backgroundColor = plyer++ % 2 ? 'yellow' : 'orchid';
+    }
 
 });
 
