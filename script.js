@@ -27,6 +27,8 @@ lyer.addEventListener('click', function(event){
 });
 
 function lyerPlay(number){
+    plyer = 1;
+    whoPlayNow();
     const fargment = document.createDocumentFragment();
     
     lyer.innerHTML = ''; //remove all children
