@@ -1,28 +1,33 @@
 const n = document.getElementById('numberN');
+const lyer = document.querySelector('#game .lyer');
+
+lyer.addEventListener('click', function(event){
+    console.log(event.target);
+    if(!(event.target.className == 'lyer') /* || x or o*/)
+    event.target.style.backgroundColor = 'green';
+
+});
 
 function lyerPlay(number){
-    const lyer = document.querySelector('#game .lyer');
     const fargment = document.createDocumentFragment();
     
     lyer.innerHTML = ''; //remove all children
     
     for(let i = 0; i < number; i++){//create many children and append to fargment
-        let child = document.createElement('div');
-        child.classList.add('red');//add class
-        fargment.appendChild(child);
+        for(let j = 0; j < number; j++){//n*n div
+            let child = document.createElement('div');
+            child.classList.add('red');//add class
+            fargment.appendChild(child);
+        }
     }
 
     lyer.appendChild(fargment);//append fargment to lyer
-
-
 
     Object.assign(lyer.style, {
         display: 'grid',
         gridTemplateColumns: `repeat(${number}, 1fr)`,
         gridTemplateRows: `repeat(${number}, 1fr)`,
     });
-    
-
 }
 lyerPlay(3);
 
