@@ -25,7 +25,7 @@ body{
     /* width: 20%; js*/
     width: 50%;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: grey;
     border-bottom-right-radius: 16px;
     font-size: 50px;
     text-align: center;
@@ -33,7 +33,7 @@ body{
 .symbol-o{
     width: 50%;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: grey;
     border-top-left-radius: 16px;
     font-size: 50px;
     text-align: center;

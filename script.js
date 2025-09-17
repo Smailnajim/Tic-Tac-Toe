@@ -2,13 +2,28 @@ const n = document.getElementById('numberN');
 const lyer = document.querySelector('#game .lyer');
 let plyer = 1;
 
+function whoPlayNow(){
+    const symbolX = document.querySelector('.symbol-x');
+    const symbolO = document.querySelector('.symbol-o');
+
+    if(plyer % 2){
+        symbolX.style.backgroundColor = 'white';
+        symbolO.style.backgroundColor = 'gray';
+    }
+    else{
+        symbolX.style.backgroundColor = 'gray';
+        symbolO.style.backgroundColor = 'white';
+    }
+    // console.log(symbolO, symbolX);
+}
+whoPlayNow();
 lyer.addEventListener('click', function(event){
     console.log(event.target.className);
     if((event.target.className != 'lyer') && (event.target.className == 'red')){
         event.target.classList.remove('red');
         event.target.style.backgroundColor = plyer++ % 2 ? 'yellow' : 'orchid';
+        whoPlayNow();
     }
-
 });
 
 function lyerPlay(number){
