@@ -18,7 +18,7 @@ function whoPlayNow(){
 }
 whoPlayNow();
 lyer.addEventListener('click', function(event){
-    console.log(event.target.className);
+    console.log(event.target.id);
     if((event.target.className != 'lyer') && (event.target.className == 'red')){
         event.target.classList.remove('red');
         event.target.style.backgroundColor = plyer++ % 2 ? 'yellow' : 'orchid';
@@ -33,10 +33,11 @@ function lyerPlay(number){
     
     lyer.innerHTML = ''; //remove all children
     
-    for(let i = 0; i < number; i++){//create many children and append to fargment
+    for(let i = (number-1); i >=0 ; i--){//create many children and append to fargment
         for(let j = 0; j < number; j++){//n*n div
             let child = document.createElement('div');
-            child.classList.add('red');//add class
+            child.classList.add('red');//add class red
+            child.id = `${j}${i}`;//add (x, y)
             fargment.appendChild(child);
         }
     }
