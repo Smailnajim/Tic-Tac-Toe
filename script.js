@@ -6,15 +6,17 @@ let stock = new Map();
 
 function checkWiner(index){
     let win = 0;
-    const y = index % 10;
-    const x = parseInt(index / 10);
+    const xy = index.split('i');
+    const x = parseInt(xy[0]);
+    const y = parseInt(xy[1]);
+
     // let  = Math.ceil(k.value / 2);
     let numberToWin = parseInt(k.value);
     let itijah = 1;
 
     // /
     for(let i = 1; i < numberToWin ; i++){
-        if(stock.has((x+(itijah*i))+''+(y+(itijah*i))) && stock.get((x+(itijah*i))+''+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
+        if(stock.has((x+(itijah*i))+'i'+(y+(itijah*i))) && stock.get((x+(itijah*i))+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
                 // winGame();//some steps after win
@@ -35,7 +37,7 @@ function checkWiner(index){
 
     // |
     for(let i = 1; i < numberToWin; i++){
-        if(stock.has(x+''+(y+(itijah*i))) && stock.get(x+''+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
+        if(stock.has(x+'i'+(y+(itijah*i))) && stock.get(x+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
                 // winGame();//some steps after win
@@ -55,7 +57,7 @@ function checkWiner(index){
 
     // //-
     for(let i = 1; i <= numberToWin; i++){
-        if(stock.has((x+(itijah*i))+''+y) && stock.get((x+(itijah*i))+''+y) == (player % 2 ? 1 : 0)){
+        if(stock.has((x+(itijah*i))+'i'+y) && stock.get((x+(itijah*i))+'i'+y) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
                 // winGame();//some steps after win
@@ -75,7 +77,7 @@ function checkWiner(index){
 
     // \
     for(let i = 1; i <= numberToWin; i++){
-        if((stock.has((x+(-1 * itijah*i))+''+(y+(itijah*i)))) && (stock.get((x+(-1 * itijah*i))+''+(y+(itijah*i))) == (player % 2 ? 1 : 0))){
+        if((stock.has((x+(-1 * itijah*i))+'i'+(y+(itijah*i)))) && (stock.get((x+(-1 * itijah*i))+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0))){
             win++;
             if (win == (numberToWin-1)) {
                 //winGame();//some steps after win
@@ -134,7 +136,7 @@ function lyerPlay(number){
         for(let j = 0; j < number; j++){//n*n div
             let child = document.createElement('div');
             child.classList.add('red');//add class red
-            child.id = `${j}${i}`;//add (x, y)
+            child.id = `${j}i${i}`;//add (x, y)
             fargment.appendChild(child);
         }
     }
