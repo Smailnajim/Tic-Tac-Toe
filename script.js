@@ -4,11 +4,11 @@ const lyer = document.querySelector('#game .lyer');
 let player = 1;
 let stock = new Map();
 let valueN = 3;
+let gameHaseWiner = 0;
 
 function winGame(){
-    lyer.removeEventListener('click', function(){
-        console.log();
-    });
+    console.log("win");
+    gameHaseWiner++;
 
 }
 
@@ -27,8 +27,8 @@ function checkWiner(index){
         if(stock.has((x+(itijah*i))+'i'+(y+(itijah*i))) && stock.get((x+(itijah*i))+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
-                // winGame();//some steps after win
-                console.log('you win by this game');
+                winGame();//some steps after win
+                // console.log('you win by this game');
             }
         }else{
             if (itijah == -1) {
@@ -126,8 +126,7 @@ function whoPlayNow(){
 }
 whoPlayNow();
 lyer.addEventListener('click', function(event){
-
-    if((event.target.className != 'lyer') && (event.target.className == 'red')){
+    if((event.target.className != 'lyer') && (event.target.className == 'red') && gameHaseWiner == 0){
         stock.set(event.target.id, player % 2 ? 1 : 0);//  0=>O, 1=>X
         event.target.classList.remove('red');
         event.target.style.backgroundColor = player % 2 ? 'yellow' : 'orchid';
