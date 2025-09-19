@@ -3,6 +3,7 @@ let k = document.getElementById('numberK');
 const lyer = document.querySelector('#game .lyer');
 let player = 1;
 let stock = new Map();
+let valueN;
 
 function checkWiner(index){
     let win = 0;
@@ -95,7 +96,8 @@ function checkWiner(index){
         }
     }
 
-    //
+    // ta3adol 
+    // if(stock.size == n.value)
 }
 
 function whoPlayNow(){
@@ -125,15 +127,16 @@ lyer.addEventListener('click', function(event){
     }
 });
 
-function lyerPlay(number){
+function lyerPlay(){
     player = 1;
+    valueN = valueN ?? 3;
     whoPlayNow();
     const fargment = document.createDocumentFragment();
     
     lyer.innerHTML = ''; //remove all children
     
-    for(let i = (number-1); i >=0 ; i--){//create many children and append to fargment
-        for(let j = 0; j < number; j++){//n*n div
+    for(let i = (valueN-1); i >=0 ; i--){//create many children and append to fargment
+        for(let j = 0; j < valueN; j++){//n*n div
             let child = document.createElement('div');
             child.classList.add('red');//add class red
             child.id = `${j}i${i}`;//add (x, y)
@@ -145,14 +148,14 @@ function lyerPlay(number){
 
     Object.assign(lyer.style, {
         display: 'grid',
-        gridTemplateColumns: `repeat(${number}, 1fr)`,
-        gridTemplateRows: `repeat(${number}, 1fr)`,
+        gridTemplateColumns: `repeat(${valueN}, 1fr)`,
+        gridTemplateRows: `repeat(${valueN}, 1fr)`,
     });
 }
-lyerPlay(3);
+lyerPlay();
 
 n.addEventListener('input', function(){
-    let valueN = this.value;
+    valueN = this.value;
     // console.log(valueN);
-    lyerPlay(valueN);
+    lyerPlay();
 });
