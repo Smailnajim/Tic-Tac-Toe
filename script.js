@@ -3,7 +3,7 @@ let k = document.getElementById('numberK');
 const lyer = document.querySelector('#game .lyer');
 let player = 1;
 let stock = new Map();
-let valueN;
+let valueN = 3;
 
 function checkWiner(index){
     let win = 0;
@@ -97,7 +97,10 @@ function checkWiner(index){
     }
 
     // ta3adol 
-    // if(stock.size == n.value)
+
+    if(stock.size == (valueN * valueN)){
+        console.log('taadol');
+    }
 }
 
 function whoPlayNow(){
@@ -129,7 +132,6 @@ lyer.addEventListener('click', function(event){
 
 function lyerPlay(){
     player = 1;
-    valueN = valueN ?? 3;
     whoPlayNow();
     const fargment = document.createDocumentFragment();
     
