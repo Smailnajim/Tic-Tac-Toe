@@ -127,7 +127,7 @@ lyer.addEventListener('click', function(event){
         checkWiner(event.target.id);
         player++;
         whoPlayNow();
-    }
+    }    
 });
 
 function lyerPlay(){
