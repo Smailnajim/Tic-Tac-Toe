@@ -1,12 +1,106 @@
 const n = document.getElementById('numberN');
+let k = document.getElementById('numberK');
 const lyer = document.querySelector('#game .lyer');
-let plyer = 1;
+let player = 1;
+let stock = new Map();
+
+function checkWiner(index){
+    let win = 0;
+    const y = index % 10;
+    const x = parseInt(index / 10);
+    // let  = Math.ceil(k.value / 2);
+    let numberToWin = parseInt(k.value);
+    let itijah = 1;
+
+    // /
+    for(let i = 1; i < numberToWin ; i++){
+        if(stock.has((x+(itijah*i))+''+(y+(itijah*i))) && stock.get((x+(itijah*i))+''+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
+            win++;
+            if (win == (numberToWin-1)) {
+                // winGame();//some steps after win
+                console.log('you win by this game');
+            }
+        }else{
+            if (itijah == -1) {
+                win = 0;
+                itijah = 1;
+                break;
+            }else{
+                itijah *= -1;
+                i = 0;
+            }
+        }
+    }
+
+
+    // |
+    for(let i = 1; i < numberToWin; i++){
+        if(stock.has(x+''+(y+(itijah*i))) && stock.get(x+''+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
+            win++;
+            if (win == (numberToWin-1)) {
+                // winGame();//some steps after win
+                console.log('you win by this game');
+            }
+        }else{
+            if (itijah == -1) {
+                win = 0;
+                itijah = 1;
+                break;
+            }else{
+                itijah *= -1;
+                i = 0;
+            }
+        }
+    }
+
+    // //-
+    for(let i = 1; i <= numberToWin; i++){
+        if(stock.has((x+(itijah*i))+''+y) && stock.get((x+(itijah*i))+''+y) == (player % 2 ? 1 : 0)){
+            win++;
+            if (win == (numberToWin-1)) {
+                // winGame();//some steps after win
+                console.log('you win by this game');
+            }
+        }else{
+            if (itijah == -1) {
+                win = 0;
+                itijah = 1;
+                break;
+            }else{
+                itijah *= -1;
+                i = 0;
+            }
+        }
+    }
+
+    // \
+    for(let i = 1; i <= numberToWin; i++){
+        if((stock.has((x+(-1 * itijah*i))+''+(y+(itijah*i)))) && (stock.get((x+(-1 * itijah*i))+''+(y+(itijah*i))) == (player % 2 ? 1 : 0))){
+            win++;
+            if (win == (numberToWin-1)) {
+                //winGame();//some steps after win
+                console.log('you win by this game');
+            }
+        }else{
+            if (itijah == -1) {
+                win = 0;
+                itijah = 1;
+                break;
+            }else{
+                itijah *= -1;
+                i = 0;
+            }
+        }
+    }
+
+    //
+}
 
 function whoPlayNow(){
     const symbolX = document.querySelector('.symbol-x');
     const symbolO = document.querySelector('.symbol-o');
 
-    if(plyer % 2){
+    if(player % 2){
         symbolX.style.backgroundColor = 'white';
         symbolO.style.backgroundColor = 'gray';
     }
@@ -18,16 +112,19 @@ function whoPlayNow(){
 }
 whoPlayNow();
 lyer.addEventListener('click', function(event){
-    console.log(event.target.id);
+    
     if((event.target.className != 'lyer') && (event.target.className == 'red')){
+        stock.set(event.target.id, player % 2 ? 1 : 0);//  0=>O, 1=>X
         event.target.classList.remove('red');
-        event.target.style.backgroundColor = plyer++ % 2 ? 'yellow' : 'orchid';
+        event.target.style.backgroundColor = player % 2 ? 'yellow' : 'orchid';
+        checkWiner(event.target.id);
+        player++;
         whoPlayNow();
     }
 });
 
 function lyerPlay(number){
-    plyer = 1;
+    player = 1;
     whoPlayNow();
     const fargment = document.createDocumentFragment();
     
