@@ -5,6 +5,13 @@ let player = 1;
 let stock = new Map();
 let valueN = 3;
 
+function winGame(){
+    lyer.removeEventListener('click', function(){
+        console.log();
+    });
+
+}
+
 function checkWiner(index){
     let win = 0;
     const xy = index.split('i');
@@ -12,7 +19,7 @@ function checkWiner(index){
     const y = parseInt(xy[1]);
 
     // let  = Math.ceil(k.value / 2);
-    let numberToWin = parseInt(k.value);
+    let numberToWin = parseInt(k.value) ?? 3;
     let itijah = 1;
 
     // /
@@ -119,7 +126,7 @@ function whoPlayNow(){
 }
 whoPlayNow();
 lyer.addEventListener('click', function(event){
-    
+
     if((event.target.className != 'lyer') && (event.target.className == 'red')){
         stock.set(event.target.id, player % 2 ? 1 : 0);//  0=>O, 1=>X
         event.target.classList.remove('red');
@@ -158,6 +165,5 @@ lyerPlay();
 
 n.addEventListener('input', function(){
     valueN = this.value;
-    // console.log(valueN);
     lyerPlay();
 });
