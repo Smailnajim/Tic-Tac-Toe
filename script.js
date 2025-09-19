@@ -138,6 +138,7 @@ lyer.addEventListener('click', function(event){
 
 function lyerPlay(){
     player = 1;
+    gameHaseWiner = 0;
     whoPlayNow();
     const fargment = document.createDocumentFragment();
     
