@@ -10,12 +10,12 @@ let scoreX = 0;
 let scoreY = 0;
 
 function winGame(){
-    game++;
     console.log("win");
-
     // localstorg
-    // localStorage.setItem('game', game);
-    // localStorage.setItem(`game-${game}`, JSON.stringify(Array.from(stock)));
+    localStorage.setItem('game', ++game);
+    localStorage.setItem('scoreX', player % 2 ? scoreX: ++scoreX);
+    localStorage.setItem('scoreY', player % 2 ? ++scoreY: scoreY);
+    localStorage.setItem(`game-${game}`, JSON.stringify(Array.from(stock)));
 
     gameHaseWiner++;
 }
