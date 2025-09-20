@@ -5,11 +5,19 @@ let player = 1;
 let stock = new Map();
 let valueN = 3;
 let gameHaseWiner = 0;
+let game = 0;//g = 0 when delet loacal storge
+let scoreX = 0;
+let scoreY = 0;
 
 function winGame(){
+    game++;
     console.log("win");
-    gameHaseWiner++;
 
+    // localstorg
+    // localStorage.setItem('game', game);
+    // localStorage.setItem(`game-${game}`, JSON.stringify(Array.from(stock)));
+
+    gameHaseWiner++;
 }
 
 function checkWiner(index){
@@ -48,8 +56,8 @@ function checkWiner(index){
         if(stock.has(x+'i'+(y+(itijah*i))) && stock.get(x+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
-                // winGame();//some steps after win
-                console.log('you win by this game');
+                winGame();//some steps after win
+                // console.log('you win by this game');
             }
         }else{
             if (itijah == -1) {
@@ -68,8 +76,8 @@ function checkWiner(index){
         if(stock.has((x+(itijah*i))+'i'+y) && stock.get((x+(itijah*i))+'i'+y) == (player % 2 ? 1 : 0)){
             win++;
             if (win == (numberToWin-1)) {
-                // winGame();//some steps after win
-                console.log('you win by this game');
+                winGame();//some steps after win
+                // console.log('you win by this game');
             }
         }else{
             if (itijah == -1) {
@@ -88,8 +96,8 @@ function checkWiner(index){
         if((stock.has((x+(-1 * itijah*i))+'i'+(y+(itijah*i)))) && (stock.get((x+(-1 * itijah*i))+'i'+(y+(itijah*i))) == (player % 2 ? 1 : 0))){
             win++;
             if (win == (numberToWin-1)) {
-                //winGame();//some steps after win
-                console.log('you win by this game');
+                winGame();//some steps after win
+                // console.log('you win by this game');
             }
         }else{
             if (itijah == -1) {
